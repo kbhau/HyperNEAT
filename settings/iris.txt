@@ -1,0 +1,37 @@
+costThresholdCppnLinksMax       = 1000
+costThresholdCppnLinksMin       = 100
+costThresholdOutputBiasesMax    = 200
+costThresholdOutputBiasesMin    = 15
+costThresholdOutputLinksMax     = 500
+costThresholdOutputLinksMin     = 25
+linkCreateChance                = 0.05
+linkDisableChance               = 0.0125
+linkInitialMutationStep         = 1.0
+linkMinimalMutationStep         = 0.01
+linkRecurrentChance             = 0.15
+linkReenableChance              = 0.015
+neuronCreateChance              = 0.025
+neuronMutateChance              = 0.05
+populationSize                  = 250
+similarityDisjointCoefficient   = 2.0
+similarityWeightCoefficient     = 1.0
+speciesTargetNumber             = 15
+
+
+
+costCoefCppnLinks               = 0.2
+costCoefOutputBiases            = 0.3
+costCoefOutputLinks             = 0.3
+costOutputBiasAbsence           = 0.85
+costPowerCppnLinks              = 1.0
+costPowerOutputBiases           = 1.0
+costPowerOutputLinks            = 1.0
+crossoverChance                 = 0.75
+crossoverOnlyChance             = 0.25
+fitnessBase                     = 1.0e-6
+fitnessNan						= 1.0e-8
+similarityThreshold             = 6.0
+similarityThresholdModifier     = 0.3
+speciesDropoffAfter             = 15
+speciesMassExtinctionAfter      = 20
+survivalThreshold               = 0.2
