@@ -7,8 +7,7 @@ developed as my ability and understanding of the topic allowed.
 
 For the details about the algorithm and other implementations
 please visit the official users page at
-[http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html]
-(http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html) 
+http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html
 
 ## Features:
 
