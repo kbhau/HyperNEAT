@@ -16,7 +16,7 @@ public:
         Float maxVal);
 
     /*
-    Returns an uniform real value in range [0, 1).
+    Returns a uniform real value in range [0, 1).
     */
     static Float randf();
 
