@@ -53,10 +53,10 @@ verification of the implementation. Dataset source can be found
 [here](https://archive.ics.uci.edu/ml/datasets/Iris). Output best
 viewed on 80 x 24 terminal display.
 
-## Additional information
-
-Method descriptions are in `.h` files.
-
 ## Further development
 
 No further public releases are planned.
+
+## Additional information
+
+Descriptions are in `.h` files.
