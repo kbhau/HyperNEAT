@@ -22,7 +22,8 @@ all: $(OBJECTS) $(EXEC)
 
 .PHONY: clean
 clean:
-	rm -f $(EXECUTABLE) $(OBJECTS)
+	- rm $(EXEC) $(OBJECTS) $(PCHC)
+	- rmdir $(OBJDIR)
 
 .PHONY: print
 print:
