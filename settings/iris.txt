@@ -9,7 +9,7 @@ linkDisableChance               = 0.0125
 linkInitialMutationStep         = 1.0
 linkMinimalMutationStep         = 0.01
 linkRecurrentChance             = 0.15
-linkReenableChance              = 0.015
+linkReenableChance              = 0.0125
 neuronCreateChance              = 0.025
 neuronMutateChance              = 0.05
 populationSize                  = 250
@@ -19,10 +19,10 @@ speciesTargetNumber             = 15
 
 
 
-costCoefCppnLinks               = 0.2
-costCoefOutputBiases            = 0.3
-costCoefOutputLinks             = 0.3
-costOutputBiasAbsence           = 0.85
+costCoefCppnLinks               = 0.0
+costCoefOutputBiases            = 0.01
+costCoefOutputLinks             = 0.01
+costOutputBiasAbsence           = 0.99
 costPowerCppnLinks              = 1.0
 costPowerOutputBiases           = 1.0
 costPowerOutputLinks            = 1.0

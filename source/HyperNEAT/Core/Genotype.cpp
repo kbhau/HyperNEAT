@@ -6,11 +6,11 @@
 #include "Archive.h"
 #include "Globals.h"
 
-Archive* Genotype::archive = nullptr;
-
 using namespace std;
 
 
+
+Archive* Genotype::archive = nullptr;
 
 void Genotype::addLink()
 {
@@ -145,12 +145,6 @@ void Genotype::addNeuron()
 
     //add node
     neuronGenes.push_back(move(node));
-
-//test2
-    if (pair.from > 30000) {
-        archive->printNeuronInnovations();
-        throw runtime_error("JESUS!!!");
-    }    
 }
 
 void Genotype::createByMutationOnly(
@@ -329,7 +323,7 @@ Float Genotype::getSimilarityMeasure(
             && pair.second.innovationNumber != -1)
         {
             ++numMatching;
-            weightDifferenceSum += abs(
+            weightDifferenceSum += fabs(
                 pair.first.weight - pair.second.weight);
         } else if (pair.first.innovationNumber != -1
             || pair.second.innovationNumber != -1)
@@ -361,32 +355,6 @@ int Genotype::isLinkPresent(
         }
     
     return -1;
-}
-
-template <class T>
-vector<pair<T, T>> Genotype::lineUp(
-    const vector<T>& a,
-    const vector<T>& b) const
-{
-    //get required size
-    auto count = a[0].innovationNumber;
-    for (int i=1; i<a.size(); ++i)
-        if (a[i].innovationNumber > count)
-            count = a[i].innovationNumber;
-    for (int i=0; i<b.size(); ++i)
-        if (b[i].innovationNumber > count)
-            count = b[i].innovationNumber;
-    
-    //allocate space
-    vector<pair<T, T>> lineup(count+1);
-
-    //assign values
-    for (auto& gene : a)
-        lineup[gene.innovationNumber].first = gene;
-    for (auto& gene : b)
-        lineup[gene.innovationNumber].second = gene;
-    
-    return lineup;
 }
 
 void Genotype::mutate()

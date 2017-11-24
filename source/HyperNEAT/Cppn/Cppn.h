@@ -9,6 +9,8 @@
 #include "Genotype.h"
 #include "Substrate.h"
 
+
+
 /*
 CPPN will be used to generate weights for the output network.
 For the 2D representation of the network there will be:
@@ -87,23 +89,4 @@ private:
     int numIONodes = 9;
 };
 
-
-
-inline
-void Cppn::createNeuronIfAbsent(
-    int neuronId,
-    const Genotype& genes)
-{
-    if (nodes[neuronId].y == -1.0) {
-        auto& node = genes.getNeuron(neuronId);
-        nodes[neuronId] = std::move(CppnNeuron(
-            node.y,
-            node.functionNumber));
-    }
-}
-
-inline
-int Cppn::getLinksAmount()
-{
-    return links.size();
-}
+#include "Cppn.hpp"

@@ -40,7 +40,7 @@ worst) evaluation counts.
 
 By default the application will try to construct a neural network
 to correctly classify examples from the Iris dataset. To run XOR
-benchmark, uncomment the line in `main()` located in
+benchmark, adjust variables in `main()` located in
 `source/main.cpp`.
 
 ## Included benchmarks
@@ -50,8 +50,9 @@ verification and debugging. Performs 10 runs and computes the
 average evaluations per solution.
 * Iris dataset: simple classification challenge for further
 verification of the implementation. Dataset source can be found
-[here](https://archive.ics.uci.edu/ml/datasets/Iris). Output best
-viewed on 80 x 24 terminal display.
+[here](https://archive.ics.uci.edu/ml/datasets/Iris).
+
+Output best viewed on 80 x 24 terminal display.
 
 ## Further development
 

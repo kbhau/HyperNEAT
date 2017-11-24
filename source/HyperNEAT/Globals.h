@@ -76,19 +76,4 @@ private:
     static NRNG normalGenerator;
 };
 
-
-
-inline
-Float Globals::clamp(
-    Float value,
-    Float minVal,
-    Float maxVal)
-{
-    return std::min(std::max(value, minVal), maxVal);
-}
-
-inline
-void Globals::setSeed(int seed)
-{
-    rng.seed(seed);
-}
+#include "Globals.hpp"

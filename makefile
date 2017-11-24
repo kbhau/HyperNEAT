@@ -1,20 +1,29 @@
 CC = g++
 PCH = pch.h
 EXECUTABLE = vtHyperNEAT
-IDIR = -I/usr/include -Iinclude
 LDIR = -L/usr/lib -Llib
-CFLAGSD = -c -std=c++14 -ggdb -O0 -Wall $(IDIR)
-CFLAGSR = -c -std=c++14 -O3 $(IDIR)
-CFLAGS = $(CFLAGSR)
 LDFLAGS = $(LDIR)
 
 OBJDIR = bin
 EXEC = $(OBJDIR)/$(EXECUTABLE)
 PCHC = $(OBJDIR)/$(PCH).gch
 
-SRCDIR = source
-OBJECTS = $(patsubst %.cpp, $(OBJDIR)/%.o, $(notdir $(wildcard $(SRCDIR)/*.cpp)))
 
+
+SOURCES = \
+	$(wildcard source/*.cpp) \
+	$(wildcard source/*/*.cpp) \
+	$(wildcard source/*/*/*.cpp)
+OBJECTS = \
+	$(patsubst %.cpp, \
+	$(OBJDIR)/%.o, \
+	$(notdir $(SOURCES)))
+VPATH = $(sort $(dir $(SOURCES)))
+IDIR = $(addprefix -I, $(VPATH))
+BKP = -I/usr/include -Iinclude 
+CFLAGSD = -c -std=c++14 -ggdb -O0 -Wall $(IDIR)
+CFLAGSR = -c -std=c++14 -O3 -Wsign-compare $(IDIR)
+CFLAGS = $(CFLAGSR)
 
 
 .PHONY: all
@@ -22,13 +31,14 @@ all: $(OBJECTS) $(EXEC)
 
 .PHONY: clean
 clean:
-	- rm $(EXEC) $(OBJECTS) $(PCHC)
-	- rmdir $(OBJDIR)
+	- rm -f $(EXEC) $(OBJECTS) $(PCHC)
+	rmdir $(OBJDIR)
 
 .PHONY: print
 print:
-	@echo $(SRCDIR)
+	@echo $(SOURCES)
 	@echo $(OBJECTS)
+	@echo $(VPATH)
 
 
 
@@ -38,10 +48,10 @@ $(EXEC): $(OBJECTS) $(PCHC)
 	$(DIRGRD)
 	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(PCHC)
+$(OBJDIR)/%.o: %.cpp $(PCHC)
 	$(DIRGRD)
 	$(CC) $(CFLAGS) $< -o $@
 
-$(PCHC): $(SRCDIR)/$(PCH)
+$(PCHC): $(PCH)
 	$(DIRGRD)
 	$(CC) $(CFLAGS) $< -o $@

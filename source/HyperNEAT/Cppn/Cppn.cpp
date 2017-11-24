@@ -3,9 +3,9 @@
 #include "pch.h"
 #include "Cppn.h"
 
-using namespace std;
-
 #include "Globals.h"
+
+using namespace std;
 
 void Cppn::createFromGenotype(
     const Genotype& genes)

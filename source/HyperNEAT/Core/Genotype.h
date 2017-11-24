@@ -100,3 +100,5 @@ private:
     //For linkGenes...
     friend class Cppn;
 };
+
+#include "Genotype.hpp"

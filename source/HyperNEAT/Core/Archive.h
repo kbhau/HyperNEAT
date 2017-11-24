@@ -27,11 +27,6 @@ public:
     */
     int getNeuronInnovation(
         const LinkPair& pair);
-    
-    /*
-    Debug.
-    */
-    void printNeuronInnovations();
 
 private:
     /*
@@ -51,13 +46,3 @@ private:
     int linkInnovationNumber = -1;
     int neuronInnovationNumber = -1;
 };
-
-
-inline
-void Archive::printNeuronInnovations()
-{
-    for (auto& kv : neuronInnovations)
-        std::cout << kv.first.from << "\t"
-            << kv.first.to << "\t"
-            << kv.second << std::endl;
-}

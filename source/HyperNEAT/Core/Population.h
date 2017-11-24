@@ -5,6 +5,11 @@
 #include "Genotype.h"
 #include "Species.h"
 
+
+
+/*
+Class responsible for management of all the genotypes.
+*/
 class Population {
 public:
     /*
@@ -34,9 +39,11 @@ public:
     void stepGeneration();
 
 private:
+    //containers
     std::vector<Genotype> population;
     std::map<int, Species> species;
 
+    //members
     Float best;
     Float similarityThreshold;
     int speciesId;

@@ -4,28 +4,35 @@
 
 class ConnectionList;
 
-struct Neuron {
-    Float sum;
-    Float out;
-    Float bias = 0.0;
-};
-
-struct Link {
-    Float weight;
-    Neuron* from;
-    Neuron* to;
-};
-
 /*
 Phenotype - neural network. Assumes first output to indicate the
 end of processing.
 */
-class OutputNetwork {
+class Ann {
+private:
+    /*
+    Nodes of the network.
+    */
+    struct Neuron {
+        Float sum;
+        Float out;
+        Float bias = 0.0;
+    };
+
+    /*
+    Connections of the network.
+    */
+    struct Link {
+        Float weight;
+        Neuron* from;
+        Neuron* to;
+    };
+
 public:
     /*
     Neuron activation function.
     */
-    inline Float activationFunction(
+    Float activationFunction(
         Float x);
     
     /*
@@ -41,9 +48,12 @@ public:
     Processes the input and returns an output. Loops n times, or
     less when first output receives signal.
     */
-    std::vector<Float> snapshot(
-        Float* in,
-        int rows);
+    template<
+        int tNumInputs,
+        int tNumOutputs>
+    void snapshot(
+        std::array<Float, tNumInputs>& in,
+        std::array<Float, tNumOutputs>& out);
 
 private:
     std::vector<Link> links;
@@ -53,3 +63,5 @@ private:
     int numIONodes;
     int depth;
 };
+
+#include "Ann.hpp"

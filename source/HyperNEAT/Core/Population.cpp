@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+
 const Genotype& Population::getGenotype(
     int id)
 {
@@ -94,6 +96,12 @@ void Population::stepGeneration()
     else if (species.size() > Globals::speciesTargetNumber)
         similarityThreshold +=
             Globals::similarityThresholdModifier;
+    if (similarityThreshold
+        < Globals::similarityThresholdModifier)
+    {
+        similarityThreshold =
+            Globals::similarityThresholdModifier;
+    }
 
     //remove stagnant species
     blacklist.clear();

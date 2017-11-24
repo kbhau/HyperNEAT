@@ -14,15 +14,10 @@ public:
     */
     void impulse();
 
-
-
+    //members
     Float weight;
     CppnNeuron* from;
     CppnNeuron* to;
 };
 
-inline
-void CppnSynapse::impulse()
-{
-    to->sum += from->out * weight;
-}
+#include "CppnSynapse.hpp"

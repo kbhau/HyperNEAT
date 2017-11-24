@@ -1,6 +1,6 @@
 /* Copyright (C) 2017 Wlodzimierz Samborski */
 
-#include "pch.h"
+#include "../../pch.h"
 #include "Archive.h"
 
 
@@ -26,12 +26,6 @@ int Archive::createNeuronInnovation(
 {
     auto id = ++neuronInnovationNumber;
     neuronInnovations[pair] = id;
-
-    /*std::cout << "Debug archive:" << std::endl;
-    for (auto& kv : neuronInnovations)
-        std::cout << kv.first.from << " -> " << kv.first.to << " : " << kv.second << std::endl;
-    std::cout << std::endl;*/
-
     return id;
 }
 
