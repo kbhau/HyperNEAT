@@ -90,12 +90,17 @@ void Population::stepGeneration()
         species.erase(id);
 
     //adjust compatibility threshold
-    if (species.size() < Globals::speciesTargetNumber)
+    if (static_cast<int>(species.size())
+        < Globals::speciesTargetNumber)
+    {
         similarityThreshold -=
             Globals::similarityThresholdModifier;
-    else if (species.size() > Globals::speciesTargetNumber)
+    } else if (static_cast<int>(species.size())
+        > Globals::speciesTargetNumber)
+    {
         similarityThreshold +=
             Globals::similarityThresholdModifier;
+    }
     if (similarityThreshold
         < Globals::similarityThresholdModifier)
     {
@@ -229,6 +234,7 @@ void Population::stepGeneration()
     auto parentB = -1;
     auto pick = static_cast<Float>(0.0);
     auto sumFitness = static_cast<Float>(0.0);
+    auto sumFitnessTemp = static_cast<Float>(0.0);
     auto sumSpent = static_cast<Float>(0.0);
     for (auto& kv : species) {
         if (kv.second.parents.size() == 1) {
@@ -266,10 +272,10 @@ void Population::stepGeneration()
                     kv.first;
             }
         } else {
-            //many parents, sum fitness
+            //many parents, sum fitness and play roulette
             sumFitness = static_cast<Float>(0.0);
-            for (int i=0; i<kv.second.parents.size(); ++i)
-                sumFitness += kv.second.parents[i].fitness;
+            for (auto& parent : kv.second.parents)
+                sumFitness += parent.fitness;
 
             //produce pffspring
             for (int i=0; i<kv.second.numOffspring; ++i) {
@@ -288,22 +294,30 @@ void Population::stepGeneration()
                 if (Globals::randf()
                     < Globals::crossoverChance)
                 {
+                    //remove parentA from the list
+                    sumFitnessTemp = sumFitness
+                        - kv.second.parents[parentA].fitness;
+
                     //if crossover then find the other parent
-                    do {
-                        pick = Globals::randf() * sumFitness;
-                        sumSpent = static_cast<Float>(0.0);
-                        for (int j=0;
-                            j<kv.second.parents.size();
-                            ++j)
-                        {
-                            sumSpent +=
-                                kv.second.parents[j].fitness;
-                            if (pick < sumSpent) {
-                                parentB = j;
-                                break;
-                            }
+                    parentB = parentA;
+                    pick = Globals::randf() * sumFitnessTemp;
+                    sumSpent = static_cast<Float>(0.0);
+                    for (int j=0;
+                        j<kv.second.parents.size();
+                        ++j)
+                    {
+                        if (j == parentA)
+                            continue;
+                        
+                        sumSpent +=
+                            kv.second.parents[j].fitness;
+                        if (pick < sumSpent) {
+                            parentB = j;
+                            break;
                         }
-                    } while (parentB == parentA);
+                    }
+                    if (parentA == parentB)
+                        throw logic_error("Parent B not found.");
                     
                     //create child
                     population[++genotypeId].createByCrossover(

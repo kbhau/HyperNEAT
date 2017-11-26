@@ -6,7 +6,7 @@ std::vector<std::pair<T, T>> Genotype::lineUp(
     const std::vector<T>& b) const
 {
     //get required size
-    auto count = a[0].innovationNumber;
+    int count = a[0].innovationNumber;
     for (int i=1; i<a.size(); ++i)
         if (a[i].innovationNumber > count)
             count = a[i].innovationNumber;

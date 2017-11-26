@@ -1,7 +1,7 @@
 /* Copyright (C) 2017 Wlodzimierz Samborski */
 
 #include "pch.h"
-#include "Neat.h"
+#include "vtHN.h"
 
 #include "Genotype.h"
 
@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-void Neat::evaluate(
+void vtHN::evaluate(
     int id,
     Float fitness)
 {
@@ -57,12 +57,12 @@ void Neat::evaluate(
     population.rateGenotype(fitness, id);
 }
 
-int Neat::getId()
+int vtHN::getId()
 {
     return nextId;
 }
 
-ConnectionList Neat::getNext()
+Solution vtHN::getNext()
 {
     while (true) {
         //epoch if no more solutions left in population
@@ -90,7 +90,7 @@ ConnectionList Neat::getNext()
     }
 }
 
-void Neat::initialise(
+void vtHN::initialise(
     const Substrate& substrate)
 {
     nextId = -1;
@@ -105,7 +105,7 @@ void Neat::initialise(
         + Globals::costCoefOutputLinks);
 }
 
-void Neat::readSettings(string path)
+void vtHN::readSettings(string path)
 {
     string line;
     ifstream f(path);

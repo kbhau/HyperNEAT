@@ -2,25 +2,39 @@
 
 #pragma once
 
-struct LinkPair {
+
+
+/*
+Connection from one node to another.
+*/
+struct Connection {
     int from;
     int to;
 };
 
+/*
+Operator needed by map.
+*/
 bool operator<(
-    const LinkPair a,
-    const LinkPair b);
+    const Connection a,
+    const Connection b);
 
+/*
+Encodes a link between two neurons.
+*/
 struct LinkGene {
-    LinkPair link;
+    Connection link;
     Float weight;
     Float mutationStep;
     int innovationNumber = -1;
     bool enabled;
 };
 
+/*
+Encodes a neuron.
+*/
 struct NeuronGene {
-    LinkPair link;
+    Connection link;
     Float x;
     Float y;
     int functionNumber;

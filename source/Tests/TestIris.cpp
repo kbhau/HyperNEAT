@@ -284,7 +284,7 @@ void TestIris::run()
             }
 
             //update test score set
-            if (score >= sTestScore) {
+            if (score > sTestScore) {
                 sEval = eval;
                 sFitness = fitness;
                 sTestScore = score;
@@ -292,7 +292,7 @@ void TestIris::run()
             }
 
             //update fitness set
-            if (fitness >= fFitness) {
+            if (fitness > fFitness) {
                 fEval = eval;
                 fFitness = fitness;
                 fTestScore = score;
@@ -300,7 +300,7 @@ void TestIris::run()
             }
 
             //update validation set
-            if (testScore >= vValScore) {
+            if (testScore > vValScore) {
                 vEval = eval;
                 vFitness = fitness;
                 vTestScore = score;
@@ -311,8 +311,8 @@ void TestIris::run()
             draw();
 
             //check goal
-            if (score == trainingSet.size()
-            && testScore == testSet.size())
+            if (score == static_cast<int>(trainingSet.size())
+            && testScore == static_cast<int>(testSet.size()))
                 break;
         } else if ((eval % (maxEval / totalDots)) == 0) {
             draw();

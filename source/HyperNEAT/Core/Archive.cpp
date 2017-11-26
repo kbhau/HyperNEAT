@@ -1,6 +1,6 @@
 /* Copyright (C) 2017 Wlodzimierz Samborski */
 
-#include "../../pch.h"
+#include "pch.h"
 #include "Archive.h"
 
 
@@ -14,7 +14,7 @@ void Archive::clear()
 }
 
 int Archive::createLinkInnovation(
-        const LinkPair& pair)
+        const Connection& pair)
 {
     auto id = ++linkInnovationNumber;
     linkInnovations[pair] = id;
@@ -22,7 +22,7 @@ int Archive::createLinkInnovation(
 }
 
 int Archive::createNeuronInnovation(
-        const LinkPair& pair)
+        const Connection& pair)
 {
     auto id = ++neuronInnovationNumber;
     neuronInnovations[pair] = id;
@@ -30,7 +30,7 @@ int Archive::createNeuronInnovation(
 }
 
 int Archive::getLinkInnovation(
-    const LinkPair& pair)
+    const Connection& pair)
 {
     auto it = linkInnovations.find(pair);
 
@@ -43,7 +43,7 @@ int Archive::getLinkInnovation(
 }
 
 int Archive::getNeuronInnovation(
-    const LinkPair& pair)
+    const Connection& pair)
 {
     auto it = neuronInnovations.find(pair);
     

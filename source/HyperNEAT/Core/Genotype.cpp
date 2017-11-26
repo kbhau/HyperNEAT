@@ -60,7 +60,7 @@ void Genotype::addLink()
         }
 
         //create and fill the link, work done
-        auto pair = LinkPair{
+        auto pair = Connection{
             fromNeuron->innovationNumber,
             toNeuron->innovationNumber};
         linkGenes.push_back(LinkGene{
@@ -120,7 +120,7 @@ void Genotype::addNeuron()
     };
 
     //create new link from node and copy old weight
-    LinkPair pair{
+    Connection pair{
         node.innovationNumber,
         toNeuron->innovationNumber
     };

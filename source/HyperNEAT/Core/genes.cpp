@@ -4,8 +4,8 @@
 #include "genes.h"
 
 bool operator<(
-    const LinkPair a,
-    const LinkPair b)
+    const Connection a,
+    const Connection b)
 {
     return (a.from < b.from) ?
         true :

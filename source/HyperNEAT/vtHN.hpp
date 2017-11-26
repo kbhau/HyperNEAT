@@ -1,7 +1,7 @@
 /* Copyright (C) 2017 Wlodzimierz Samborski */
 
 inline
-Float Neat::getDiscountedFitness(
+Float vtHN::getDiscountedFitness(
     Float fitness,
     int links,
     int thresholdMin,

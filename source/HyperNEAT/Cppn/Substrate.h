@@ -2,12 +2,15 @@
 
 #pragma once
 
-class Substrate {
-public:
-    //Holds possible neuron coordinates for the CPPN to work on.
+#include "pch.h"
+
+
+
+/*
+Holds information about possible node placement.
+*/
+struct Substrate {
     std::vector<std::pair<Float, Float>> coords;
-    
-    //Assuming order Inputs, Outputs, Hiddens
     int numInputs;
     int numIONodes;
 };

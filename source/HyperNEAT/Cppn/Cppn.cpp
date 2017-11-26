@@ -56,41 +56,38 @@ void Cppn::generateConnections()
     output.links.clear();
 
     //regular connections
-    for (int i=0; i<substrate.coords.size(); ++i) {
-        for (int j=0; j<substrate.coords.size(); ++j) {
+    for (int from=0; from<substrate.coords.size(); ++from) {
+        for (int to=0; to<substrate.coords.size(); ++to) {
             Float cppnInput[5] = {
                 1.0,
-                substrate.coords[i].first,
-                substrate.coords[i].second,
-                substrate.coords[j].first,
-                substrate.coords[j].second
+                substrate.coords[from].first,
+                substrate.coords[from].second,
+                substrate.coords[to].first,
+                substrate.coords[to].second
             };
             process(cppnInput);
             if (nodes[5].out > 0.0) {
-                output.links.push_back(
-                    make_tuple(i, j,
-                        Globals::clamp(
-                            nodes[6].out,
-                            static_cast<Float>(-3.0),
-                            static_cast<Float>(3.0))));
+                auto weight = Globals::clamp(
+                    nodes[6].out,
+                    static_cast<Float>(-3.0),
+                    static_cast<Float>(3.0));
+                output.links.push_back({weight, from, to});
             }
         }
     }
 
     //biases
-    for (int i=0; i<substrate.coords.size(); ++i) {
+    for (int id=0; id<substrate.coords.size(); ++id) {
         Float cppnInput[5] = {
             1.0,
-            substrate.coords[i].first,
-            substrate.coords[i].second,
+            substrate.coords[id].first,
+            substrate.coords[id].second,
             0.0,
             0.0
         };
         process(cppnInput);
-        if (nodes[7].out > 0.0) {
-            output.biases.push_back(
-                make_pair(i, nodes[8].out));
-        }
+        if (nodes[7].out > 0.0)
+            output.biases.push_back({nodes[8].out, id});
     }
 }
 
@@ -129,7 +126,7 @@ void Cppn::process(Float* inputs)
     }
 }
 
-const ConnectionList& Cppn::query(
+const Solution& Cppn::query(
     const Genotype& genes)
 {
     createFromGenotype(genes);

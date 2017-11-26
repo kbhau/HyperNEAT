@@ -4,7 +4,7 @@
 
 #include "Ann.h"
 #include "LabeledRow.h"
-#include "Neat.h"
+#include "vtHN.h"
 
 
 
@@ -44,7 +44,7 @@ private:
 
     //core data
     Ann net;
-    Neat algo;
+    vtHN algo;
     Substrate s;
     std::vector<LabeledRow<4, 3>> trainingSet;
     std::vector<LabeledRow<4, 3>> testSet;

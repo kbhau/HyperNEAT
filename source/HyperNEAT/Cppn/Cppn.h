@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "ConnectionList.h"
 #include "CppnNeuron.h"
 #include "CppnSynapse.h"
 #include "genes.h"
 #include "Genotype.h"
+#include "Solution.h"
 #include "Substrate.h"
 
 
@@ -41,7 +41,7 @@ public:
     /*
     Queries the CPPN for connection weights.
     */
-    const ConnectionList& query(
+    const Solution& query(
         const Genotype& genes);
 
 
@@ -73,7 +73,7 @@ private:
 
 
     //IO
-    ConnectionList output;
+    Solution output;
     Substrate substrate;
 
     //Neurons of the CPPN. Format: innovation number, neuron data.

@@ -3,14 +3,14 @@
 #include "pch.h"
 #include "Ann.h"
 
-#include "ConnectionList.h"
+#include "Solution.h"
 
 using namespace std;
 
 
 
 void Ann::create(
-    const ConnectionList& scheme,
+    const Solution& scheme,
     int numInputs_,
     int numOutputs_,
     int depth_)
@@ -30,13 +30,13 @@ void Ann::create(
     //add links and related nodes
     links.resize(scheme.links.size());
     for (int i=0; i<links.size(); ++i) {
-        links[i].from = &(nodes[get<0>(scheme.links[i])]);
-        links[i].to = &(nodes[get<1>(scheme.links[i])]);
-        links[i].weight = get<2>(scheme.links[i]);
+        links[i].from = &(nodes[scheme.links[i].fromId]);
+        links[i].to = &(nodes[scheme.links[i].toId]);
+        links[i].weight = scheme.links[i].weight;
     }
 
     //add biases
-    for (auto& kv : scheme.biases) {
-        nodes[kv.first].bias = kv.second;
+    for (auto& bias : scheme.biases) {
+        nodes[bias.id].bias = bias.value;
     }
 }

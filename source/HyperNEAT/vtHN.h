@@ -3,10 +3,10 @@
 #pragma once
 
 #include "Archive.h"
-#include "ConnectionList.h"
 #include "Cppn.h"
 #include "Globals.h"
 #include "Population.h"
+#include "Solution.h"
 #include "Substrate.h"
 
 
@@ -23,7 +23,7 @@ struct SolutionStats {
 /*
 API for the algorithm.
 */
-class Neat {
+class vtHN {
 public:
     /*
     Assigns fitness to solution at given id. Higher is better.
@@ -41,7 +41,7 @@ public:
     Returns next set of connections. When all are already taken,
     calls epoch.
     */
-    ConnectionList getNext();
+    Solution getNext();
 
     /*
     Call after reading settings.
@@ -80,4 +80,4 @@ private:
     int nextId;
 };
 
-#include "Neat.hpp"
+#include "vtHN.hpp"

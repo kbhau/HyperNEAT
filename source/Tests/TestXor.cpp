@@ -29,7 +29,7 @@ void TestXor::draw()
     cout << " ] Unsolved:\t" << unsolved << "\n";
     cout << " ] Av. evals:\t"
         << static_cast<Float>(evaluationSum)
-            / static_cast<Float>(runNum) << "\n\n";
+            / static_cast<Float>(solved + unsolved) << "\n\n";
     //12
     
     //newlines - 1
@@ -90,18 +90,25 @@ void TestXor::init()
         make_pair(0.0, 1.0),
 
         //layer 1
-        make_pair(-1.0, -0.333),
-        make_pair(-0.5, -0.333),
-        make_pair(0.0, -0.333),
-        make_pair(0.5, -0.333),
-        make_pair(1.0, -0.333),
+        make_pair(-1.0, -0.5),
+        make_pair(-0.5, -0.5),
+        make_pair(0.0, -0.5),
+        make_pair(0.5, -0.5),
+        make_pair(1.0, -0.5),
 
         //layer 2
-        make_pair(-1.0, 0.333),
-        make_pair(-0.5, 0.333),
-        make_pair(0.0, 0.333),
-        make_pair(0.5, 0.333),
-        make_pair(1.0, 0.333)
+        make_pair(-1.0, 0.0),
+        make_pair(-0.5, 0.0),
+        make_pair(0.0, 0.0),
+        make_pair(0.5, 0.0),
+        make_pair(1.0, 0.0),
+
+        //layer 3
+        make_pair(-1.0, 0.5),
+        make_pair(-0.5, 0.5),
+        make_pair(0.0, 0.5),
+        make_pair(0.5, 0.5),
+        make_pair(1.0, 0.5)
     };
 
     //read parameters
@@ -156,7 +163,7 @@ void TestXor::run()
             cl,
             s.numInputs,
             s.numIONodes - s.numInputs,
-            4);
+            5);
         
         //evaluate
         auto error = static_cast<Float>(0.0);
@@ -204,6 +211,7 @@ void TestXor::run()
         
         if (evaluation == evaluationMax) {
             ++unsolved;
+            draw();
             break;
         } else if (evaluation % (evaluationMax / totalDots) == 0)
         {

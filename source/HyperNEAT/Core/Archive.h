@@ -19,30 +19,30 @@ public:
     one and returns it.
     */
     int getLinkInnovation(
-        const LinkPair& pair);
+        const Connection& pair);
     
     /*
     Looks up the innovation number for the pair or creates a new
     one and returns it.
     */
     int getNeuronInnovation(
-        const LinkPair& pair);
+        const Connection& pair);
 
 private:
     /*
     Generates innovation number, stores and returns it.
     */
     int createLinkInnovation(
-        const LinkPair& pair);
+        const Connection& pair);
 
     /*
     Generates innovation number, stores and returns it.
     */
     int createNeuronInnovation(
-        const LinkPair& pair);
+        const Connection& pair);
             
-    std::map<LinkPair, int> linkInnovations;
-    std::map<LinkPair, int> neuronInnovations;
+    std::map<Connection, int> linkInnovations;
+    std::map<Connection, int> neuronInnovations;
     int linkInnovationNumber = -1;
     int neuronInnovationNumber = -1;
 };

@@ -2,7 +2,7 @@
 
 #pragma once
 
-class ConnectionList;
+class Solution;
 
 /*
 Phenotype - neural network. Assumes first output to indicate the
@@ -39,7 +39,7 @@ public:
     Clears the network and fills according to the scheme.
     */
     void create(
-        const ConnectionList& scheme,
+        const Solution& scheme,
         int numInputs,
         int numOutputs,
         int depth);
