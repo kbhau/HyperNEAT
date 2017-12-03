@@ -3,6 +3,8 @@
 #include "pch.h"
 #include "Archive.h"
 
+using namespace vt;
+
 
 
 void Archive::clear()

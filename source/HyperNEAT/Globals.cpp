@@ -3,6 +3,10 @@
 #include "pch.h"
 #include "Globals.h"
 
+using namespace vt;
+
+
+
 //functions
 
 Float Globals::randf()

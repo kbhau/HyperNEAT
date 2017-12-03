@@ -44,8 +44,8 @@ private:
 
     //objects
     Ann net;
-    vtHN algo;
-    Substrate s;
+    vt::vtHN algo;
+    vt::Substrate s;
     std::vector<LabeledRow<2, 1>> testSet = {
         {{0.0, 0.0}, {0.0}},
         {{0.0, 1.0}, {1.0}},

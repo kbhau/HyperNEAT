@@ -4,12 +4,13 @@
 
 #include "CppnNeuron.h"
 #include "CppnSynapse.h"
-#include "genes.h"
 #include "Genotype.h"
 #include "Solution.h"
 #include "Substrate.h"
 
 
+
+namespace vt {
 
 /*
 CPPN will be used to generate weights for the output network.
@@ -45,7 +46,7 @@ public:
         const Genotype& genes);
 
 
-        
+
 private:
     /*
     Creates nodes and links from the given genotype.
@@ -90,3 +91,5 @@ private:
 };
 
 #include "Cppn.hpp"
+
+}//namespace

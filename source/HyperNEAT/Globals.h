@@ -2,6 +2,14 @@
 
 #pragma once
 
+using RNG = std::default_random_engine;
+using FRNG = std::uniform_real_distribution<Float>;
+using NRNG = std::normal_distribution<Float>;
+
+
+
+namespace vt {
+
 /*
 Class holding parameters and common functions.
 */
@@ -32,7 +40,6 @@ public:
     static void setSeed(int seed);
 
     //parameters
-
     static Float costCoefCppnLinks;
     static Float costCoefOutputBiases;
     static Float costCoefOutputLinks;
@@ -77,3 +84,5 @@ private:
 };
 
 #include "Globals.hpp"
+
+}//namespace

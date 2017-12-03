@@ -6,6 +6,8 @@
 
 
 
+namespace vt {
+
 /*
 An output network scheme. Used to transport the solution out of
 the CPPN.
@@ -33,3 +35,5 @@ public:
     std::vector<SolutionBias> biases;
     std::vector<SolutionLink> links;
 };
+
+}//namespace

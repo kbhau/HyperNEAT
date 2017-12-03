@@ -4,6 +4,9 @@
 #include "CppnNeuron.h"
 
 using namespace std;
+using namespace vt;
+
+
 
 CppnNeuron::CppnNeuron() :
 y(static_cast<Float>(-1.0)),

@@ -7,6 +7,8 @@
 
 
 
+namespace vt {
+
 /*
 Class responsible for management of all the genotypes.
 */
@@ -49,3 +51,5 @@ private:
     int speciesId;
     int stagnantFor;
 };
+
+}//namespace

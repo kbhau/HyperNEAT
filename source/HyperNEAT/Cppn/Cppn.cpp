@@ -6,6 +6,9 @@
 #include "Globals.h"
 
 using namespace std;
+using namespace vt;
+
+
 
 void Cppn::createFromGenotype(
     const Genotype& genes)

@@ -6,6 +6,7 @@
 #include "Genotype.h"
 
 using namespace std;
+using namespace vt;
 
 
 

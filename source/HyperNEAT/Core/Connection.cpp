@@ -1,11 +1,14 @@
 /* Copyright (C) 2017 Wlodzimierz Samborski */
 
-#include "pch.h"
-#include "genes.h"
+#include "Connection.h"
+
+
+
+namespace vt {
 
 bool operator<(
-    const Connection a,
-    const Connection b)
+    const vt::Connection a,
+    const vt::Connection b)
 {
     return (a.from < b.from) ?
         true :
@@ -13,3 +16,5 @@ bool operator<(
             (a.to < b.to) :
             false;
 }
+
+}//namespace

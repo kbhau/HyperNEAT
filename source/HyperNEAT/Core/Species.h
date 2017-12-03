@@ -6,6 +6,8 @@
 
 
 
+namespace vt {
+
 /*
 Used for clustering genotypes during epoch.
 */
@@ -51,3 +53,5 @@ public:
     int stagnantFor = 0;
     int numOffspring = 0;
 };
+
+}//namespace

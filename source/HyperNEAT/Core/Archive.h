@@ -2,7 +2,11 @@
 
 #pragma once
 
-#include "genes.h"
+#include "Connection.h"
+
+
+
+namespace vt {
 
 /*
 Keeps the history of innovations.
@@ -46,3 +50,5 @@ private:
     int linkInnovationNumber = -1;
     int neuronInnovationNumber = -1;
 };
+
+}//namespace

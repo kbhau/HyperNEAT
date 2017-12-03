@@ -4,6 +4,10 @@
 
 #include "CppnNeuron.h"
 
+
+
+namespace vt {
+
 /*
 Represents a synaptic connection between two neurons.
 */
@@ -21,3 +25,5 @@ public:
 };
 
 #include "CppnSynapse.hpp"
+
+}//namespace

@@ -7,7 +7,8 @@ developed as my ability and understanding of the topic allowed.
 
 For the details about the algorithm and other implementations
 please visit the official users page at
-http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html
+[http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html]
+(http://eplex.cs.ucf.edu/hyperNEATpage/HyperNEAT.html) 
 
 ## Features:
 
@@ -40,7 +41,7 @@ worst) evaluation counts.
 
 By default the application will try to construct a neural network
 to correctly classify examples from the Iris dataset. To run XOR
-benchmark, adjust variables in `main()` located in
+benchmark, uncomment the line in `main()` located in
 `source/main.cpp`.
 
 ## Included benchmarks
@@ -50,14 +51,9 @@ verification and debugging. Performs 10 runs and computes the
 average evaluations per solution.
 * Iris dataset: simple classification challenge for further
 verification of the implementation. Dataset source can be found
-[here](https://archive.ics.uci.edu/ml/datasets/Iris).
-
-Output best viewed on 80 x 24 terminal display.
-
-## Further development
-
-No further public releases are planned.
+[here](https://archive.ics.uci.edu/ml/datasets/Iris). Output best
+viewed on 80 x 24 terminal display.
 
 ## Additional information
 
-Descriptions are in `.h` files.
+Method descriptions are in `.h` files.

@@ -14,12 +14,12 @@
 #include <map>
 #include <random>
 #include <stdexcept>
-#include <tuple>
 #include <utility>
 #include <vector>
 
+namespace {
+
 #define int int32_t
-using Float = double;
-using RNG = std::default_random_engine;
-using FRNG = std::uniform_real_distribution<Float>;
-using NRNG = std::normal_distribution<Float>;
+using Float = double_t;
+
+}//namespace

@@ -4,6 +4,9 @@
 #include "TestXor.h"
 
 using namespace std;
+using namespace vt;
+
+
 
 void TestXor::draw()
 {

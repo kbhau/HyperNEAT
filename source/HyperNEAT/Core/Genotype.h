@@ -2,7 +2,11 @@
 
 #pragma once
 
-#include "genes.h"
+#include "Connection.h"
+
+
+
+namespace vt {
 
 class Archive;
 
@@ -10,6 +14,29 @@ class Archive;
 A genotype for underlying NEAT implementation.
 */
 class Genotype {
+private:
+    /*
+    Encodes a link between two neurons.
+    */
+    struct LinkGene {
+        Connection link;
+        Float weight;
+        Float mutationStep;
+        int innovationNumber = -1;
+        bool enabled;
+    };
+
+    /*
+    Encodes a neuron.
+    */
+    struct NeuronGene {
+        Connection link;
+        Float x;
+        Float y;
+        int functionNumber;
+        int innovationNumber = -1;
+    };
+
 public:
     /*
     Creates a child with mutation only.
@@ -102,3 +129,5 @@ private:
 };
 
 #include "Genotype.hpp"
+
+}//namespace

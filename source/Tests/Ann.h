@@ -2,7 +2,9 @@
 
 #pragma once
 
-class Solution;
+namespace vt {
+    class Solution;
+}
 
 /*
 Phenotype - neural network. Assumes first output to indicate the
@@ -39,7 +41,7 @@ public:
     Clears the network and fills according to the scheme.
     */
     void create(
-        const Solution& scheme,
+        const vt::Solution& scheme,
         int numInputs,
         int numOutputs,
         int depth);

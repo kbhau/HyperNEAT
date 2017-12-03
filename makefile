@@ -20,10 +20,10 @@ OBJECTS = \
 	$(notdir $(SOURCES)))
 VPATH = $(sort $(dir $(SOURCES)))
 IDIR = $(addprefix -I, $(VPATH))
-BKP = -I/usr/include -Iinclude 
-CFLAGSD = -c -std=c++14 -ggdb -O0 -Wall $(IDIR)
+CFLAGSD = -c -std=c++14 -O0 -Wall -ggdb $(IDIR)
 CFLAGSR = -c -std=c++14 -O3 -Wno-sign-compare $(IDIR)
 CFLAGS = $(CFLAGSR)
+
 
 
 .PHONY: all

@@ -4,6 +4,10 @@
 
 #include "Globals.h"
 
+
+
+namespace vt {
+
 /*
 Represents a single node of CPPN.
 */
@@ -35,3 +39,5 @@ private:
 };
 
 #include "CppnNeuron.hpp"
+
+}//namespace

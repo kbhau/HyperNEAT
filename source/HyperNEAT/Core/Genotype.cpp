@@ -7,6 +7,7 @@
 #include "Globals.h"
 
 using namespace std;
+using namespace vt;
 
 
 
@@ -292,7 +293,7 @@ void Genotype::createFromScratch(
         addLink();
 }
 
-const NeuronGene& Genotype::getNeuron(
+const Genotype::NeuronGene& Genotype::getNeuron(
         int innovationNumber) const
 {
     for (auto& neuronGene : neuronGenes)

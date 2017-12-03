@@ -11,19 +11,22 @@
 
 
 
-/*
-Data for modifying the fitness score.
-*/
-struct SolutionStats {
-    int cppnLinks;
-    int outputBiases;
-    int outputLinks;
-};
+namespace vt {
 
 /*
 API for the algorithm.
 */
 class vtHN {
+private:
+    /*
+    Data for computing the weight cost.
+    */
+    struct SolutionStats {
+        int cppnLinks;
+        int outputBiases;
+        int outputLinks;
+    };
+
 public:
     /*
     Assigns fitness to solution at given id. Higher is better.
@@ -81,3 +84,5 @@ private:
 };
 
 #include "vtHN.hpp"
+
+}//namespace

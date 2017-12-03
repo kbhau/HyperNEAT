@@ -44,8 +44,8 @@ private:
 
     //core data
     Ann net;
-    vtHN algo;
-    Substrate s;
+    vt::vtHN algo;
+    vt::Substrate s;
     std::vector<LabeledRow<4, 3>> trainingSet;
     std::vector<LabeledRow<4, 3>> testSet;
     int numOutputs;

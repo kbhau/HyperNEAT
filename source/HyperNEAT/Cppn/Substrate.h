@@ -6,6 +6,8 @@
 
 
 
+namespace vt {
+
 /*
 Holds information about possible node placement.
 */
@@ -14,3 +16,5 @@ struct Substrate {
     int numInputs;
     int numIONodes;
 };
+
+}//namespace
